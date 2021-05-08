@@ -52,6 +52,10 @@ class YouTubeScrapper
                                         videoId = specs['videoId']
                                         videourl = "https://www.youtube.com/watch?v=#{videoId}"
                                         video_hash.store('videourl', videourl)
+                                        published = specs['publishedTimeText']['simpleText']
+                                        video_hash.store('publishedTimeText', published)
+                                        duration = specs['thumbnailOverlays'][0]['thumbnailOverlayTimeStatusRenderer']['text']['simpleText']
+                                        video_hash.store('duration', duration)    
                                         video_array.push(video_hash)
                                       end
                                     end
@@ -106,6 +110,10 @@ class YouTubeScrapper
                                     videoId = specs['videoId']
                                     videourl = "https://www.youtube.com/watch?v=#{videoId}"
                                     video_hash.store('videourl', videourl)
+                                    published = specs['publishedTimeText']['simpleText']
+                                    video_hash.store('publishedTimeText', published)
+                                    duration = specs['thumbnailOverlays'][0]['thumbnailOverlayTimeStatusRenderer']['text']['simpleText']
+                                    video_hash.store('duration', duration)    
                                     video_array.push(video_hash)
                                   rescue
                                     break
